@@ -1,4 +1,4 @@
-/* Salient website concept v2: shared interactions */
+/* Fieldline website concept v2: shared interactions */
 (() => {
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];

@@ -2,9 +2,9 @@ from common import *
 
 PEXELS_VIDEO = 'https://videos.pexels.com/video-files/36455152/15458588_1920_1080_25fps.mp4'
 PEXELS_POSTER = 'https://images.pexels.com/videos/36455152/analysis-analytics-bar-business-36455152.jpeg?auto=compress&cs=tinysrgb&w=1920'
-VID_ALC = 'https://www.salient.com/wp-content/uploads/2025/12/Alcoholic-Beverage-Wine-Spirits-Production-Conveyor-Belt-.mp4'
-VID_CPG = 'https://www.salient.com/wp-content/uploads/2025/12/Consumer-Packaged-Goods-CPG-Baked-Item-Conveyor-Belt-Factory.mp4'
-FAREWAY_PHOTO = 'https://www.salient.com/wp-content/uploads/2026/09/Commercial-Website-Images-LR-1.jpg'
+VID_ALC = ''
+VID_CPG = ''
+QUOTE_PHOTO = 'assets/img/case-grocer.webp'
 
 TABS = [
     ('retail', 'Retail, grocery and convenience', 'Your margin story isn\u2019t contained in one dashboard.',
@@ -18,13 +18,13 @@ TABS = [
      'non-alcoholic-beverage.html', 'Explore non-alcoholic performance', 'img', 'assets/img/ind-nonalc.webp'),
     ('alc', 'Alcoholic beverage', 'Performance doesn\u2019t pour itself.',
      'Pricing, portfolio mix, promotions, inventory, route execution and cost-to-serve influence whether growth creates value or diminishes it.',
-     'alcoholic-beverage.html', 'Explore alcoholic performance', 'video', VID_ALC),
+     'alcoholic-beverage.html', 'Explore alcoholic performance', 'img', 'assets/img/ind-alc.webp'),
     ('cpg', 'Consumer packaged goods', 'See what happens between shipment and shelf.',
      'Connect internal, distributor, retailer and market information to understand how pricing, promotion, execution and product mix shape growth and margin.',
-     'consumer-packaged-goods.html', 'Explore consumer goods performance', 'video', VID_CPG),
+     'consumer-packaged-goods.html', 'Explore consumer goods performance', 'img', 'assets/img/ind-cpg.webp'),
     ('health', 'Healthcare', 'Build around the decisions that define healthcare performance.',
      'Bring clinical, operating and financial information together around the measures, responsibilities and priorities that matter to your organization.',
-     'https://www.salienthealth.com', 'Explore Salient Health', 'img', 'assets/img/hero-connect.webp'),
+     '#', 'Explore Fieldline Health', 'img', 'assets/img/hero-connect.webp'),
 ]
 
 def tabs_html():
@@ -65,9 +65,9 @@ STEPS = [
 ]
 
 BLOG = [
-    ('https://www.salient.com/data-integration-decision-infrastructure/', 'https://www.salient.com/wp-content/uploads/2026/09/Salient-Blog-Images-2.png', 'Data integration isn\u2019t the same as decision infrastructure', 'Most retail, wholesale, distribution and CPG organizations have tried to solve performance with integration alone.'),
-    ('https://www.salient.com/kpi-alignment-competing-priorities/', 'https://www.salient.com/wp-content/uploads/2026/08/KPI-Alignment.jpeg', 'Do your KPIs create alignment or competing priorities?', 'Most organizations have no shortage of key performance indicators. Fewer have KPIs that pull in the same direction.'),
-    ('https://www.salient.com/performance-feedback-cycle-decision-friction/', 'https://www.salient.com/wp-content/uploads/2026/08/Decision-Friction-Performance-Cycle.jpeg', '7 places decision friction enters the feedback cycle', 'Decision friction accumulates at different points in the performance feedback cycle.'),
+    ('#', '', 'Data integration isn\u2019t the same as decision infrastructure', 'Most retail, wholesale, distribution and CPG organizations have tried to solve performance with integration alone.'),
+    ('#', '', 'Do your KPIs create alignment or competing priorities?', 'Most organizations have no shortage of key performance indicators. Fewer have KPIs that pull in the same direction.'),
+    ('#', '', '7 places decision friction enters the feedback cycle', 'Decision friction accumulates at different points in the performance feedback cycle.'),
 ]
 
 def home():
@@ -81,12 +81,12 @@ def home():
   </video>
   <div class="wrap hero-inner">
     <h1 class="hero-title" id="hero-title"><span>Every result</span><span>has a reason.</span><span class="soft">We make sure you find it.</span></h1>
-    <p class="hero-sub">Your business is complex. Getting to the root of performance shouldn\u2019t be. Salient helps complex organizations define what drives performance, put ownership closer to where outcomes can be influenced and create the visibility and feedback people need to improve.</p>
-    <div class="btn-row">{btn('See what Salient can do for you', 'connect.html', 'accent')}{btn('Follow the question', '#follow', 'ghost', arrow=False)}</div>
+    <p class="hero-sub">Your business is complex. Getting to the root of performance shouldn\u2019t be. Fieldline helps complex organizations define what drives performance, put ownership closer to where outcomes can be influenced and create the visibility and feedback people need to improve.</p>
+    <div class="btn-row">{btn('See what Fieldline can do for you', 'connect.html', 'accent')}{btn('Follow the question', '#follow', 'ghost', arrow=False)}</div>
     <div class="hero-foot">
       <div class="hero-proof">
-        <div><b>Since 1986</b><span>Performance and industry expertise</span></div>
-        <div><b>Five industries</b><span>Plus healthcare through Salient Health</span></div>
+        <div><b>Since 1991</b><span>Performance and industry expertise</span></div>
+        <div><b>Five industries</b><span>Plus healthcare through Fieldline Health</span></div>
         <div><b>Billions of transactions</b><span>Queried at the speed of the question</span></div>
       </div>
       <div style="display:flex;align-items:center;gap:1rem">
@@ -131,7 +131,7 @@ def home():
     <div class="section-head reveal"><div>
       <p class="kicker">Experience where it matters</p>
       <h2 class="h-section" id="ind-title">Performance works differently by industry.<span class="soft">So should the solution.</span></h2>
-      <p class="lede">Salient brings decades of industry experience together with proprietary technology and performance expertise. We start with the realities of your operating environment, not ask you to translate them into a generic application or predetermined model.</p>
+      <p class="lede">Fieldline brings decades of industry experience together with proprietary technology and performance expertise. We start with the realities of your operating environment, not ask you to translate them into a generic application or predetermined model.</p>
     </div></div>
     {tabs_html()}
   </div>
@@ -142,7 +142,7 @@ def home():
     <div class="reveal">
       <p class="kicker">Designed to go further</p>
       <h2 class="h-section" id="follow-title">What happened is only the beginning.<span class="soft">Understand what drives performance.</span></h2>
-      <p class="lede">Traditional analytics and BI environments limit business users to the measures, views and interactions someone anticipated in advance. Salient\u2019s proprietary technology is designed for what happens after the first answer. Try it with illustrative numbers from a beverage distributor.</p>
+      <p class="lede">Traditional analytics and BI environments limit business users to the measures, views and interactions someone anticipated in advance. Fieldline\u2019s proprietary technology is designed for what happens after the first answer. Try it with illustrative numbers from a beverage distributor.</p>
       <ol class="steps">{steps}</ol>
     </div>
     {demo}
@@ -151,15 +151,15 @@ def home():
 
 <section class="section" aria-labelledby="built-title">
   <div class="wrap">
-    {head('We didn\u2019t build technology to report on performance.', 'Salient\u2019s proprietary performance technology grew from decades of work helping complex organizations define value, distribute responsibility and give people the visibility and feedback they need to improve outcomes. That experience shaped the technology itself.', 'Built differently for a reason', 'We built it to help improve it.').replace('<h2 class="h-section">', '<h2 class="h-section" id="built-title">')}
+    {head('We didn\u2019t build technology to report on performance.', 'Fieldline\u2019s proprietary performance technology grew from decades of work helping complex organizations define value, distribute responsibility and give people the visibility and feedback they need to improve outcomes. That experience shaped the technology itself.', 'Built differently for a reason', 'We built it to help improve it.').replace('<h2 class="h-section">', '<h2 class="h-section" id="built-title">')}
     {cards([
-        ('Integrated performance data', 'Salient connects, cleans and transforms data from across your organization into a governed foundation designed to measure performance consistently and in detail.', 'el-sws-blue.webp'),
+        ('Integrated performance data', 'Fieldline connects, cleans and transforms data from across your organization into a governed foundation designed to measure performance consistently and in detail.', 'el-sws-blue.webp'),
         ('Business context and rules built into the data', 'Measures, definitions, hierarchies, relationships and business rules give the data meaning beyond the systems where it originated, including advanced allocations so measures such as margin reflect how value is actually created.', 'el-sws-seagreen.webp'),
         ('Proprietary technology built for investigation', 'Business users can move from summarized performance into detailed activity, change perspectives and follow questions without requiring every path to be predefined.', 'el-steps-blue.webp'),
         ('AI built into the performance environment', 'Integrated AI helps users navigate, analyze, interpret change and identify where to investigate next. It works within your measures, relationships and business rules, so it has the context to support more relevant analysis.', 'el-asterisk-seablue.webp'),
-        ('Expertise that makes the technology specific to you', 'Salient works with your organization to define measures, structure business logic, build allocation rules and shape the performance environment around the outcomes you\u2019re aiming to improve.', 'el-tile-seagreen.webp'),
+        ('Expertise that makes the technology specific to you', 'Fieldline works with your organization to define measures, structure business logic, build allocation rules and shape the performance environment around the outcomes you\u2019re aiming to improve.', 'el-tile-seagreen.webp'),
     ])}
-    <p class="mt-3 reveal" style="font-size:var(--fs-xl);font-weight:700;letter-spacing:-0.02em;color:var(--salient-blue)">Technology built for performance. <span style="font-weight:300">Expertise that makes it yours.</span></p>
+    <p class="mt-3 reveal" style="font-size:var(--fs-xl);font-weight:700;letter-spacing:-0.02em;color:var(--brand-blue)">Technology built for performance. <span style="font-weight:300">Expertise that makes it yours.</span></p>
   </div>
 </section>
 
@@ -185,15 +185,15 @@ def home():
     <h2 class="visually-hidden" id="proof-title">Customer stories</h2>
     <figure class="quote-block reveal">
       <div>
-        <blockquote>{QUOTE_MARK}<p>Not only does the solution provide information to make better decisions, the Salient team understand the questions we are asking and why answers to those questions matter to our business.</p></blockquote>
-        <figcaption><img src="assets/logos/fareway.svg" alt="Fareway Meat &amp; Grocery" width="150" height="33"><span><strong>Andrea Chase</strong><small>Fareway Meat &amp; Grocery</small></span></figcaption>
+        <blockquote>{QUOTE_MARK}<p>Not only does the solution provide information to make better decisions, the Fieldline team understand the questions we are asking and why answers to those questions matter to our business.</p></blockquote>
+        <figcaption><img src="assets/logos/northgate-market.svg" alt="Northgate Market" width="150" height="33"><span><strong>Jordan Ellis</strong><small>Northgate Market</small></span></figcaption>
       </div>
-      <div class="quote-photo"><img src="{FAREWAY_PHOTO}" alt="Andrea Chase of Fareway Stores" loading="lazy" onerror="this.src='assets/img/case-mothers.webp'"></div>
+      <div class="quote-photo"><img src="{QUOTE_PHOTO}" alt="Jordan Ellis of Northgate Market" loading="lazy" onerror="this.src='assets/img/case-grocer.webp'"></div>
     </figure>
     <div class="story-grid mt-3">
-      {story_card('customers.html#drug-mart', 'assets/img/case-drugmart.webp', 'Retail', 'Discount Drug Mart', 'A regional retailer with more than 75 stores moved from waiting days on IT reports to answering store questions quickly.', chips=['Faster store-level response', 'Better planogram decisions'])}
-      {story_card('customers.html#mothers-market', 'assets/img/case-mothers.webp', 'Grocery', 'Mother\u2019s Market &amp; Kitchen', 'Nine stores went from week-long manual analysis to pulling sales information in minutes.', chips=['Minutes, not days', 'Clear ownership'])}
-      {story_card('customers.html#carvel', 'assets/img/case-carvel.webp', 'Consumer packaged goods', 'Carvel', 'A practical, flexible view of store-level performance that separates true demand issues from execution gaps.', chips=['Average per outlet', 'Region to route'])}
+      {story_card('customers.html#lakeside-pharmacy', 'assets/img/case-pharmacy.webp', 'Retail', 'Lakeside Pharmacy', 'A regional retailer with more than 75 stores moved from waiting days on IT reports to answering store questions quickly.', chips=['Faster store-level response', 'Better planogram decisions'])}
+      {story_card('customers.html#pinecrest-grocers', 'assets/img/case-grocer.webp', 'Grocery', 'Pinecrest Grocers', 'Nine stores went from week-long manual analysis to pulling sales information in minutes.', chips=['Minutes, not days', 'Clear ownership'])}
+      {story_card('customers.html#bluebird-creamery', 'assets/img/case-creamery.webp', 'Consumer packaged goods', 'Bluebird Creamery', 'A practical, flexible view of store-level performance that separates true demand issues from execution gaps.', chips=['Average per outlet', 'Region to route'])}
     </div>
   </div>
 </section>
@@ -209,7 +209,7 @@ def home():
   </div>
 </section>
 '''
-    return page('index.html', 'Salient | Every result has a reason. We make sure you find it.',
-                'Salient helps complex organizations define what drives performance, put ownership closer to where outcomes can be influenced and create the visibility and feedback people need to improve.',
+    return page('index.html', 'Fieldline | Every result has a reason. We make sure you find it.',
+                'Fieldline helps complex organizations define what drives performance, put ownership closer to where outcomes can be influenced and create the visibility and feedback people need to improve.',
                 body, ('Ready for a better way to manage business performance?',
-                       'Bring your people, performance priorities and data together with Salient\u2019s expertise, proven methodology and proprietary technology to create a performance solution built around the way value is created across your business.'))
+                       'Bring your people, performance priorities and data together with Fieldline\u2019s expertise, proven methodology and proprietary technology to create a performance solution built around the way value is created across your business.'))

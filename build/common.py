@@ -1,9 +1,14 @@
-"""Shared layout pieces for the Salient static site.
+"""Shared layout pieces for the Fieldline static site.
 Run build/build.py to regenerate every page from these templates."""
 
 ARROW = '<svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 CHEV = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 EXT = '<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" style="display:inline;vertical-align:-1px"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+
+LOCAL_IMGS = ['assets/img/strip-1.webp', 'assets/img/hero-guide.webp', 'assets/img/story-platform.webp', 'assets/img/hero-blog.webp', 'assets/img/hero-careers.webp', 'assets/img/strip-2.webp', 'assets/img/hero-events.webp', 'assets/img/hero-how.webp', 'assets/img/strip-3.webp', 'assets/img/hero-connect.webp', 'assets/img/story-people.webp', 'assets/img/hero-industries.webp']
+def local_img(src):
+    if src and not src.startswith('http'): return src
+    return LOCAL_IMGS[sum(map(ord, src or 'x')) % len(LOCAL_IMGS)]
 
 def icon(path):
     return f'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="{path}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -37,7 +42,7 @@ def mega_link(href, title, desc, key, external=False):
 
 def header(current):
     ind_links = ''.join(mega_link(h, t, d, k) for h, t, d, k in INDUSTRIES)
-    ind_links += mega_link('https://www.salienthealth.com', 'Healthcare', 'Visit Salient Health', 'health', external=True)
+    ind_links += mega_link('#', 'Healthcare', 'Visit Fieldline Health', 'health', external=True)
     def cur(group):
         return ' is-current' if current in group else ''
     ind_pages = {h for h, *_ in INDUSTRIES} | {'industries.html'}
@@ -45,9 +50,10 @@ def header(current):
         return ' aria-current="page"' if current == page else ''
     return f'''
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="concept-note" role="note">Design concept by Dan Baroody for a fictional company. Names, logos, quotes and figures are placeholders.</div>
 <header class="site-header" data-header>
   <div class="wrap header-inner">
-    <a class="brand" href="index.html" aria-label="Salient home"><img src="assets/brand/salient-logo.svg" alt="Salient" width="148" height="41"></a>
+    <a class="brand" href="index.html" aria-label="Fieldline home"><img src="assets/brand/fieldline-logo.svg" alt="Fieldline" width="148" height="41"></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><span class="nav-toggle-bars" aria-hidden="true"></span><span class="visually-hidden">Menu</span></button>
     <nav class="nav" id="site-nav" aria-label="Main" data-nav>
       <ul class="nav-list">
@@ -90,14 +96,14 @@ def header(current):
           <div class="mega" id="mega-about">
             <div class="wrap mega-inner">
               <div class="mega-grid">
-                {mega_link('about.html', 'About Salient', 'Who we are, what we believe and our history since 1986', 'about')}
+                {mega_link('about.html', 'About Fieldline', 'Who we are, what we believe and our history since 1991', 'about')}
                 {mega_link('careers.html', 'Careers', 'Performance isn\u2019t just what we deliver. It\u2019s how we work.', 'careers')}
               </div>
               <a class="mega-feature" href="about.html">
                 <img src="assets/img/hero-about.webp" alt="" loading="lazy">
-                <small>Since 1986</small>
+                <small>Since 1991</small>
                 <strong>This is what performance looks like in motion.</strong>
-                <span class="text-link">Meet Salient {ARROW}</span>
+                <span class="text-link">Meet Fieldline {ARROW}</span>
               </a>
             </div>
           </div>
@@ -108,7 +114,7 @@ def header(current):
   </div>
 </header>'''
 
-def cta_final(title, text, button='See what Salient can do for you', href='connect.html'):
+def cta_final(title, text, button='See what Fieldline can do for you', href='connect.html'):
     return f'''
 <section class="cta-final" aria-labelledby="cta-title">
   <div class="wrap cta-grid">
@@ -119,8 +125,8 @@ def cta_final(title, text, button='See what Salient can do for you', href='conne
       <div class="btn-row"><a class="btn btn-accent btn-lg" href="{href}">{button} {ARROW}</a></div>
     </div>
     <address class="cta-contact">
-      <span>88 E. Tioga Avenue<br>Corning, NY 14830</span>
-      <a href="tel:+16077394511">(607) 739-4511</a>
+      <span>100 Main Street<br>Anytown, USA</span>
+      <a href="tel:+15550100142">(555) 010-0142</a>
     </address>
   </div>
   <img class="element" src="assets/brand/el-steps-white.webp" alt="" width="140" height="140" loading="lazy">
@@ -132,17 +138,17 @@ def footer():
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="assets/brand/salient-logo-white.svg" alt="Salient" width="140" height="39" loading="lazy">
+      <img src="assets/brand/fieldline-logo-white.svg" alt="Fieldline" width="140" height="39" loading="lazy">
       <p>Data-driven decisions keep performance in motion.</p>
     </div>
-    <nav aria-label="Industries"><h2>Industries</h2><ul>{inds}<li><a href="https://www.salienthealth.com">Healthcare {EXT}</a></li></ul></nav>
-    <nav aria-label="Company"><h2>Company</h2><ul><li><a href="about.html">About Salient</a></li><li><a href="how-we-work.html">How we work</a></li><li><a href="customers.html">Customers</a></li><li><a href="careers.html">Careers</a></li></ul></nav>
+    <nav aria-label="Industries"><h2>Industries</h2><ul>{inds}<li><a href="#">Healthcare {EXT}</a></li></ul></nav>
+    <nav aria-label="Company"><h2>Company</h2><ul><li><a href="about.html">About Fieldline</a></li><li><a href="how-we-work.html">How we work</a></li><li><a href="customers.html">Customers</a></li><li><a href="careers.html">Careers</a></li></ul></nav>
     <nav aria-label="Resources"><h2>Resources</h2><ul><li><a href="commercial-performance-guide.html">Commercial performance guide</a></li><li><a href="blog.html">Blog</a></li><li><a href="events.html">Events</a></li></ul></nav>
-    <nav aria-label="Contact"><h2>Contact</h2><ul><li><a href="connect.html">Connect with us</a></li><li><a href="tel:+16077394511">(607) 739-4511</a></li><li><a href="https://www.linkedin.com/company/salient-management/">LinkedIn {EXT}</a></li><li><a href="https://x.com/SalientMgmtComp/">X {EXT}</a></li></ul></nav>
+    <nav aria-label="Contact"><h2>Contact</h2><ul><li><a href="connect.html">Connect with us</a></li><li><a href="tel:+15550100142">(555) 010-0142</a></li><li><a href="#">LinkedIn {EXT}</a></li><li><a href="#">X {EXT}</a></li></ul></nav>
   </div>
   <div class="wrap footer-legal">
-    <span>&copy; <span data-year>2026</span> Salient. All rights reserved. 88 E. Tioga Avenue, Corning, NY 14830</span>
-    <ul><li><a href="https://www.salient.com/privacy-policy/">Privacy policy</a></li><li><a href="https://www.salient.com/terms-of-use/">Terms of use</a></li></ul>
+    <span>&copy; <span data-year>2026</span> Fieldline. All rights reserved. 100 Main Street, Anytown, USA</span>
+    <ul><li><a href="#">Privacy policy</a></li><li><a href="#">Terms of use</a></li></ul>
   </div>
 </footer>'''
 
@@ -158,7 +164,7 @@ def page(slug, title, description, body, cta=None):
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="website">
-  <link rel="icon" href="assets/brand/salient-bug.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/brand/fieldline-bug.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -238,26 +244,39 @@ def head(title, lede='', kicker='', soft='', link=None):
     return f'<div class="section-head reveal"><div>{k}<h2 class="h-section">{title}{s}</h2>{l}</div>{lk}</div>'
 
 LOGOS = [
-    ('ccu-disc', 'Coca-Cola Bottling Company United'), ('coca-cola-canada', 'Coca-Cola Canada Bottling'),
-    ('liberty-coca-cola', 'Liberty Coca-Cola Beverages'), ('pepsi-bottling-ventures', 'Pepsi Bottling Ventures'),
-    ('keurig-dr-pepper', 'Keurig Dr Pepper'), ('goya', 'Goya Foods'), ('fareway', 'Fareway Meat & Grocery'),
-    ('silver-eagle', 'Silver Eagle Distributors'), ('associated-foods', 'Associated Food Stores'),
-    ('bimbo', 'Bimbo Bakeries USA'), ('unilever', 'Unilever'), ('carvel', 'Carvel'),
-    ('7g-distributing', '7G Distributing'), ('heidelberg', 'Heidelberg Distributing'),
-    ('house-of-la-rose', 'The House of La Rose'), ('holiday-market', 'Holiday Market'),
-    ('mothers-market', 'Mother\u2019s Market & Kitchen'), ('crickler', 'Crickler Vending'),
-    ('nys-doh', 'New York State Department of Health'), ('maceys', 'Macey\u2019s'),
+    ('clearwater-bottling-company', 'Clearwater Bottling Company'),
+    ('northern-spring-bottling', 'Northern Spring Bottling'),
+    ('harbor-bottling-group', 'Harbor Bottling Group'),
+    ('ridgeline-bottling-ventures', 'Ridgeline Bottling Ventures'),
+    ('copper-kettle-beverage', 'Copper Kettle Beverage'),
+    ('oakmont-foods', 'Oakmont Foods'),
+    ('northgate-market', 'Northgate Market'),
+    ('blue-heron-distributors', 'Blue Heron Distributors'),
+    ('summit-food-cooperative', 'Summit Food Cooperative'),
+    ('hearthstone-bakeries', 'Hearthstone Bakeries'),
+    ('evergreen-brands', 'Evergreen Brands'),
+    ('bluebird-creamery', 'Bluebird Creamery'),
+    ('granite-distributing', 'Granite Distributing'),
+    ('riverbend-distributing', 'Riverbend Distributing'),
+    ('rosewood-beverage-house', 'Rosewood Beverage House'),
+    ('valley-fresh-market', 'Valley Fresh Market'),
+    ('pinecrest-grocers', 'Pinecrest Grocers'),
+    ('lantern-vending', 'Lantern Vending'),
+    ('county-health-department', 'County Health Department'),
+    ('maple-street-foods', 'Maple Street Foods'),
 ]
 
 def logo_grid(keys=None):
     items = [l for l in LOGOS if not keys or l[0] in keys]
     cells = []
     for key, alt in items:
-        ext = 'svg' if key == 'fareway' else 'webp'
+        ext = 'svg'
         cells.append(f'<li class="logo-cell"><img src="assets/logos/{key}.{ext}" alt="{alt}" loading="lazy"></li>')
     return f'<ul class="logo-grid reveal" aria-label="Partners">{"".join(cells)}</ul>'
 
 def story_card(href, img, small, title, text, more='Read the story', chips=None, feature=False, cat=None, external=False):
+    img = local_img(img)
+    if href.startswith('http'): href = '#'
     chip_html = ''
     if chips:
         chip_html = '<div class="metric-chips">' + ''.join(f'<span>{c}</span>' for c in chips) + '</div>'
